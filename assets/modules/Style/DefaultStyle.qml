@@ -4,6 +4,7 @@ import Style.Color 1.0 as Color
 import Style.Card 1.0 as Card
 import Style.Text 1.0 as Text
 import Style.Button 1.0 as Button
+import Style.Menu 1.0 as Menu
 
 AbstractStyle {
     id: style
@@ -144,5 +145,16 @@ AbstractStyle {
             }
         }
 
+    }
+
+    menu: Menu.Style{
+        colors: Menu.Colors{
+            background: Style.colors.gray.dark
+            border: Style.colors.gray.lighter
+        }
+        radius: 5
+        border: 3
+        textSize: 36
+        opacity: 0.8
     }
 }

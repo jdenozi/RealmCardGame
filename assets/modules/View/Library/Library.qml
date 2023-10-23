@@ -9,21 +9,24 @@ import View.Manager 1.0
 import Components.Menu 1.0
 
 View{
-    id: homePage
-    name: "Home"
+    id: libraryPage
+    name: "Library"
     headerFactor: 2
     footerFactor: 0
     leftFactor: 4
     rightFactor: 6
-    background: Background{anchors.fill: parent}
+    background: Rectangle{
+        color: "green"
+        anchors.fill: parent
+    }
 
 
-    header: Header {
+    header: Item {
         Layout.fillHeight: true
         Layout.fillWidth: true
     }
 
-    leftColumn: Options {
+    leftColumn: Item {
         Layout.fillHeight: true
         Layout.fillWidth: true
     }

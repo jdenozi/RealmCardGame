@@ -8,19 +8,16 @@ Page {
 
     // Properties
     property string name
-    property var headerPage
     property double headerFactor: 1
     property double footerFactor: 1
     property int leftFactor: 1
     property int rightFactor: 1
     property int columns: 1
     property int rows: 1
-    property string backgroundColor
 
     // Aliases
     property alias leftColumn: left.data
     property alias rightColumn: right.data
-    property alias backgroundContent: backgroundRect.data
 
     property int margin: 0
 
@@ -30,6 +27,10 @@ Page {
     // Signals
     signal resized()
 
+    header: Rectangle{
+        id: header
+    }
+
     // Footer
     footer: Rectangle {
         id: footer
@@ -38,18 +39,6 @@ Page {
     // Layout
     Layout.preferredHeight: parent.height
     Layout.preferredWidth: parent.width
-
-    // Background Rectangle
-    Rectangle {
-        anchors.fill: parent
-        color: backgroundColor
-    }
-
-    Item {
-        id: backgroundRect
-        anchors.fill: parent
-        visible: page.backgroundContent !== null
-    }
 
     // Row Layout
     RowLayout {
@@ -104,14 +93,7 @@ Page {
         left.Layout.preferredWidth = leftSize
         right.Layout.preferredWidth = rightSize
 
-        if (headerPage !== null) {
-            page.headerPage.height = (headerSize === null) ? 0 : headerSize
-        }
-        if (backgroundRect.visible) {
-            backgroundRect.width = page.width;
-            backgroundRect.height = page.height;
-        }
-
+        page.header.height = (headerSize === null) ? 0 : headerSize
         page.footer.height = (footerSize === null) ? 0 : footerSize
 
         page.resized()

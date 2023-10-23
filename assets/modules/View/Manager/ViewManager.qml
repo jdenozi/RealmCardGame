@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.15
 import QtQml.Models 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.12
-import "qrc:/"
 
 StackLayout {
     id: stack

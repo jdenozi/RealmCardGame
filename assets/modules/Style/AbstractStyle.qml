@@ -3,6 +3,7 @@ import Style.Color 1.0 as Color
 import Style.Card 1.0 as Card
 import Style.Button 1.0 as Button
 import Style.Text 1.0 as Text
+import Style.Menu 1.0 as Menu
 
 
 
@@ -12,4 +13,6 @@ QtObject {
     property Card.Style card
     property Button.Style button
     property Text.Style text
+    property Menu.Style menu
+
 }

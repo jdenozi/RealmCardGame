@@ -23,10 +23,6 @@ ApplicationWindow {
         id: content
     }
 
-    Card{
-        id: "testCard"
-    }
-
     function toggleMaximized() {
         resize()
         if (window.visibility === Window.Maximized) {
