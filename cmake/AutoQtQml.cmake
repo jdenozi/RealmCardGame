@@ -1,8 +1,8 @@
+
 function(link_qt_common_to_target TARGET)
 
     find_package(Qt5 COMPONENTS ${QTCOMMON_QT_COMPONENTS} REQUIRED)
     foreach(QT_COMPONENT ${QTCOMMON_QT_COMPONENTS})
-        message("-- [Link] Qt5::${QT_COMPONENT}")
         target_link_libraries(${TARGET} PRIVATE "Qt5::${QT_COMPONENT}")
         target_include_directories(${TARGET} PRIVATE ${Qt5${QT_COMPONENT}_INCLUDE_DIRS})
     endforeach()

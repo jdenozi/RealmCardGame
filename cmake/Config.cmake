@@ -1,3 +1,4 @@
+
 function(config_target TARGET)
 
     # Add automatic version file
@@ -22,6 +23,7 @@ function(config_target TARGET)
             CXX_STANDARD_REQUIRED ON
             CXX_EXTENSIONS OFF
     )
+
 
     target_include_directories(${TARGET} PRIVATE ${CMAKE_BINARY_DIR}/include)
 

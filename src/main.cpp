@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
             },
             Qt::QueuedConnection);
     engine.rootContext()->setContextProperty("appVersion", QString(QT_QML_TEMPLATE_VERSION));
-    engine.addImportPath( "qrc:modules/");
+    engine.addImportPath( "qrc:/modules/");
     engine.load(url);
     qApp->exec();
 }
