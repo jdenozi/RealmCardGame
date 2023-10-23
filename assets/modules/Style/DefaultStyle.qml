@@ -2,6 +2,8 @@ pragma Singleton
 import QtQuick 2.0
 import Style.Color 1.0 as Color
 import Style.Card 1.0 as Card
+import Style.Text 1.0 as Text
+import Style.Button 1.0 as Button
 
 AbstractStyle {
     id: style
@@ -69,6 +71,24 @@ AbstractStyle {
         }
     }
 
+    text: Text.Style {
+        property list<FontLoader> loaders
+
+        loaders: [
+            FontLoader {
+                source: "qrc:/fonts/Metropolis-Regular.ttf"
+            },
+            FontLoader {
+                source: "qrc:/fonts/Metropolis-Bold.ttf"
+            }
+        ]
+        font: loaders[0].status == FontLoader.Ready ? loaders[0].name : ""
+        color: style.colors.white
+        titleSize: 22
+        subTitleSize: 19
+        contentSize: 16
+    }
+
     card: Card.Style {
         radius: 10
         border: 14
@@ -103,5 +123,26 @@ AbstractStyle {
             selection: ""
             focus: "qrc:/animations/rect_pulsar.json"
         }
+    }
+
+    button: Button.Style {
+        radius: 5
+        border: 2
+        textSize: 14
+        opacity: 0.5
+
+        colors: Button.Colors {
+            border: colors.green.base
+            borderColor: style.colors.gray.lighter
+
+            type: Button.ButtonType {
+
+                base: Color.BinaryChoice {
+                    enabled: "transparent"
+                    disabled: style.colors.white
+                }
+            }
+        }
+
     }
 }
